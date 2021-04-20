@@ -1,113 +1,199 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/constants.dart';
 
-void main() {
-  runApp(MyApp());
-}
+main() => runApp(ShadyAzizaPortfolio());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class ShadyAzizaPortfolio extends StatelessWidget {
+  const ShadyAzizaPortfolio({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+          primaryColor: kPrimaryColor,
+          accentColor: kSecondaryColor,
+          iconTheme: IconThemeData(color: kScaffoldColor, size: 52),
+          fontFamily: "Poppins"),
+      home: Home(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+class Home extends StatelessWidget {
+  const Home({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+        elevation: 0.0,
+        backgroundColor: kScaffoldColor,
+        title: Padding(
+          padding: EdgeInsets.only(left: 36),
+          child: TextButton(
+            onPressed: () {},
+            child: Text(
+              "shadyaziza",
+              style: TextStyle(
+                  color: kPrimaryColor,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 24),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+          ),
         ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 36),
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                "Services",
+                style: TextStyle(color: kPrimaryColor),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 36),
+            child: TextButton(
+              onPressed: () {},
+              child: Text(
+                "About",
+                style: TextStyle(color: kPrimaryColor),
+              ),
+            ),
+          ),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      body: ListView(
+        // padding: EdgeInsets.all(50.0),
+        children: [
+          Container(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 150.0, vertical: 36.0),
+            height: 375,
+            width: size.width,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [kPrimaryColor, kSecondaryColor],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "YOUR",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: kScaffoldColor,
+                        fontSize: 48,
+                      ),
+                    ),
+                    Text(
+                      "ideas",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: kCanvasColor,
+                        fontSize: 48,
+                      ),
+                    ),
+                    Text(
+                      "deserve a",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: kScaffoldColor,
+                        fontSize: 48,
+                      ),
+                    ),
+                    Text(
+                      "UNICORN",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        color: kCanvasColor,
+                        fontSize: 48,
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Flexible(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(maxWidth: 720),
+                        child: Text(
+                          'Progressive unicron developer skilled at optimizing designs based on current and expected demands. Work effectively in high-pressure environments to meet challenging design standards and schedule targets. Expert in Flutter and UX.',
+                          style:
+                              TextStyle(color: kScaffoldColor, fontSize: 28.0),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 32,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Icon(
+                          Icons.home,
+                          size: 52,
+                        ),
+                        SizedBox(
+                          width: 24.0,
+                        ),
+                        Icon(
+                          Icons.search,
+                          size: 52,
+                        ),
+                        SizedBox(
+                          width: 24.0,
+                        ),
+                        Icon(
+                          Icons.accessible_forward_rounded,
+                          size: 52,
+                        ),
+                        SizedBox(
+                          width: 24.0,
+                        ),
+                        Icon(
+                          Icons.account_balance_rounded,
+                          size: 52,
+                        ),
+                        SizedBox(
+                          width: 24.0,
+                        ),
+                        Icon(
+                          Icons.access_time_rounded,
+                          size: 52,
+                        ),
+                        SizedBox(
+                          width: 24.0,
+                        ),
+                        Icon(
+                          Icons.access_alarm,
+                          size: 52,
+                        ),
+                        SizedBox(
+                          width: 24.0,
+                        ),
+                        Icon(
+                          Icons.ac_unit,
+                          size: 52,
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
